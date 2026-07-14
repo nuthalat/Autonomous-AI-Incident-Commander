@@ -1,0 +1,14 @@
+[
+  {
+    "incident_id": "inc-hist-2026-014",
+    "title": "Checkout payment deadline too aggressive",
+    "summary": "Timeout set below p95; restored to 2s.",
+    "root_cause": "Client timeout below payment service latency",
+    "services": [
+      "checkout-api",
+      "payment-service"
+    ],
+    "resolved_at": "2026-03-02T11:00:00Z",
+    "similarity_notes": "Same deadline exceeded error from checkout client"
+  }
+]

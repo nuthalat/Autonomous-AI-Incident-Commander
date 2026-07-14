@@ -1,0 +1,56 @@
+[
+  {
+    "metric_id": "m-q-depth",
+    "name": "queue_depth",
+    "service": "redis",
+    "unit": "count",
+    "labels": {
+      "queue": "checkout:retries"
+    },
+    "points": [
+      {
+        "timestamp": "2026-07-14T20:50:00Z",
+        "value": 120
+      },
+      {
+        "timestamp": "2026-07-14T21:00:00Z",
+        "value": 800
+      },
+      {
+        "timestamp": "2026-07-14T21:05:00Z",
+        "value": 22000
+      },
+      {
+        "timestamp": "2026-07-14T21:10:00Z",
+        "value": 54000
+      }
+    ]
+  },
+  {
+    "metric_id": "m-q-retries",
+    "name": "client_retry_total",
+    "service": "checkout-api",
+    "unit": "count",
+    "labels": {
+      "target": "inventory-service"
+    },
+    "points": [
+      {
+        "timestamp": "2026-07-14T20:50:00Z",
+        "value": 40
+      },
+      {
+        "timestamp": "2026-07-14T21:00:00Z",
+        "value": 900
+      },
+      {
+        "timestamp": "2026-07-14T21:05:00Z",
+        "value": 18000
+      },
+      {
+        "timestamp": "2026-07-14T21:10:00Z",
+        "value": 42000
+      }
+    ]
+  }
+]

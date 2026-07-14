@@ -1,0 +1,121 @@
+[
+  {
+    "evidence_id": "ev-cpe-metric-pool-wait",
+    "source": "metrics",
+    "tool_name": "detect_metric_anomaly",
+    "query_or_parameters": {
+      "metric": "db_connection_pool_wait_seconds"
+    },
+    "timestamp": "2026-07-14T18:05:00Z",
+    "finding": "db_connection_pool_wait_seconds spiked from ~0.02s to ~5s after 18:00Z",
+    "confidence": 0.93,
+    "evidence_uri": "fixture://evidence/ev-cpe-metric-pool-wait",
+    "raw_reference_id": "m-cpe-pool-wait",
+    "redaction_status": "not_required",
+    "related_services": [
+      "checkout-api",
+      "postgres"
+    ],
+    "tags": []
+  },
+  {
+    "evidence_id": "ev-cpe-log-pool-timeout",
+    "source": "logs",
+    "tool_name": "cluster_log_errors",
+    "query_or_parameters": {
+      "query": "QueuePool limit"
+    },
+    "timestamp": "2026-07-14T18:05:00Z",
+    "finding": "Repeated QueuePool limit of size 10 overflow 0 reached errors",
+    "confidence": 0.95,
+    "evidence_uri": "fixture://evidence/ev-cpe-log-pool-timeout",
+    "raw_reference_id": "log-cpe-1",
+    "redaction_status": "not_required",
+    "related_services": [
+      "checkout-api"
+    ],
+    "tags": []
+  },
+  {
+    "evidence_id": "ev-cpe-trace-db-wait",
+    "source": "traces",
+    "tool_name": "find_trace_critical_path",
+    "query_or_parameters": {},
+    "timestamp": "2026-07-14T18:05:00Z",
+    "finding": "Critical path dominated by postgres connection.acquire waits (~5000ms)",
+    "confidence": 0.9,
+    "evidence_uri": "fixture://evidence/ev-cpe-trace-db-wait",
+    "raw_reference_id": "tr-cpe-1001",
+    "redaction_status": "not_required",
+    "related_services": [
+      "checkout-api",
+      "postgres"
+    ],
+    "tags": []
+  },
+  {
+    "evidence_id": "ev-cpe-deploy-checkout",
+    "source": "deployment",
+    "tool_name": "get_deployment",
+    "query_or_parameters": {},
+    "timestamp": "2026-07-14T18:00:30Z",
+    "finding": "checkout-api 1.24.0 deployed at 17:55Z immediately before symptom onset",
+    "confidence": 0.88,
+    "evidence_uri": "fixture://evidence/ev-cpe-deploy-checkout",
+    "raw_reference_id": "dep-cpe-checkout-224",
+    "redaction_status": "not_required",
+    "related_services": [
+      "checkout-api"
+    ],
+    "tags": []
+  },
+  {
+    "evidence_id": "ev-cpe-code-pool-size",
+    "source": "code",
+    "tool_name": "get_commit_diff",
+    "query_or_parameters": {},
+    "timestamp": "2026-07-14T16:40:00Z",
+    "finding": "Commit a11c0depool01 reduced POOL_SIZE 50\u219210 and max_overflow 10\u21920",
+    "confidence": 0.96,
+    "evidence_uri": "fixture://evidence/ev-cpe-code-pool-size",
+    "raw_reference_id": "code-cpe-1",
+    "redaction_status": "not_required",
+    "related_services": [
+      "checkout-api"
+    ],
+    "tags": []
+  },
+  {
+    "evidence_id": "ev-cpe-runbook-pool",
+    "source": "runbook",
+    "tool_name": "search_runbooks",
+    "query_or_parameters": {},
+    "timestamp": "2026-07-14T18:05:00Z",
+    "finding": "Runbook recommends restoring prior pool settings with approval",
+    "confidence": 0.8,
+    "evidence_uri": "fixture://evidence/ev-cpe-runbook-pool",
+    "raw_reference_id": "rb-cpe-pool",
+    "redaction_status": "not_required",
+    "related_services": [
+      "checkout-api"
+    ],
+    "tags": []
+  },
+  {
+    "evidence_id": "ev-cpe-hist-similar",
+    "source": "historical_incident",
+    "tool_name": "search_historical_incidents",
+    "query_or_parameters": {},
+    "timestamp": "2026-07-14T18:05:00Z",
+    "finding": "Historical incident inc-hist-2025-088 matches QueuePool signature",
+    "confidence": 0.77,
+    "evidence_uri": "fixture://evidence/ev-cpe-hist-similar",
+    "raw_reference_id": "inc-hist-2025-088",
+    "redaction_status": "not_required",
+    "related_services": [
+      "checkout-api",
+      "postgres"
+    ],
+    "tags": []
+  }
+]

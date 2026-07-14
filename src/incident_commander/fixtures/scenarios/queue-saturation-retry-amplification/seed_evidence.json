@@ -1,0 +1,117 @@
+[
+  {
+    "evidence_id": "ev-q-metric-depth",
+    "source": "metrics",
+    "tool_name": "query_metric",
+    "query_or_parameters": {},
+    "timestamp": "2026-07-14T21:10:00Z",
+    "finding": "checkout:retries queue depth rose from hundreds to 54k",
+    "confidence": 0.95,
+    "evidence_uri": "fixture://evidence/ev-q-metric-depth",
+    "raw_reference_id": "m-q-depth",
+    "redaction_status": "not_required",
+    "related_services": [
+      "redis"
+    ],
+    "tags": []
+  },
+  {
+    "evidence_id": "ev-q-metric-retries",
+    "source": "metrics",
+    "tool_name": "compare_metric_windows",
+    "query_or_parameters": {},
+    "timestamp": "2026-07-14T21:10:00Z",
+    "finding": "client_retry_total amplified by orders of magnitude after 21:00Z",
+    "confidence": 0.93,
+    "evidence_uri": "fixture://evidence/ev-q-metric-retries",
+    "raw_reference_id": "m-q-retries",
+    "redaction_status": "not_required",
+    "related_services": [
+      "checkout-api"
+    ],
+    "tags": []
+  },
+  {
+    "evidence_id": "ev-q-log-retry",
+    "source": "logs",
+    "tool_name": "cluster_log_errors",
+    "query_or_parameters": {},
+    "timestamp": "2026-07-14T21:10:00Z",
+    "finding": "Logs show attempt=17/20 with backoff_ms=0",
+    "confidence": 0.94,
+    "evidence_uri": "fixture://evidence/ev-q-log-retry",
+    "raw_reference_id": "log-q-1",
+    "redaction_status": "not_required",
+    "related_services": [
+      "checkout-api"
+    ],
+    "tags": []
+  },
+  {
+    "evidence_id": "ev-q-trace-amplification",
+    "source": "traces",
+    "tool_name": "get_trace",
+    "query_or_parameters": {},
+    "timestamp": "2026-07-14T21:10:00Z",
+    "finding": "retry_worker performs 20 attempts and re-enqueues to Redis",
+    "confidence": 0.9,
+    "evidence_uri": "fixture://evidence/ev-q-trace-amplification",
+    "raw_reference_id": "tr-q-9",
+    "redaction_status": "not_required",
+    "related_services": [
+      "checkout-api",
+      "redis",
+      "inventory-service"
+    ],
+    "tags": []
+  },
+  {
+    "evidence_id": "ev-q-config-retry",
+    "source": "configuration",
+    "tool_name": "list_config_changes",
+    "query_or_parameters": {},
+    "timestamp": "2026-07-14T20:58:00Z",
+    "finding": "INVENTORY_RETRY_MAX 3\u219220 and backoff 250\u21920",
+    "confidence": 0.97,
+    "evidence_uri": "fixture://evidence/ev-q-config-retry",
+    "raw_reference_id": "cfg-q-retry",
+    "redaction_status": "not_required",
+    "related_services": [
+      "checkout-api"
+    ],
+    "tags": []
+  },
+  {
+    "evidence_id": "ev-q-runbook",
+    "source": "runbook",
+    "tool_name": "search_runbooks",
+    "query_or_parameters": {},
+    "timestamp": "2026-07-14T21:10:00Z",
+    "finding": "Runbook recommends pausing retries then restoring policy",
+    "confidence": 0.82,
+    "evidence_uri": "fixture://evidence/ev-q-runbook",
+    "raw_reference_id": "rb-q-1",
+    "redaction_status": "not_required",
+    "related_services": [
+      "checkout-api"
+    ],
+    "tags": []
+  },
+  {
+    "evidence_id": "ev-q-hist",
+    "source": "historical_incident",
+    "tool_name": "search_historical_incidents",
+    "query_or_parameters": {},
+    "timestamp": "2026-07-14T21:10:00Z",
+    "finding": "Historical retry storm matches zero-backoff pattern",
+    "confidence": 0.8,
+    "evidence_uri": "fixture://evidence/ev-q-hist",
+    "raw_reference_id": "inc-hist-2024-210",
+    "redaction_status": "not_required",
+    "related_services": [
+      "checkout-api",
+      "redis"
+    ],
+    "tags": []
+  }
+]

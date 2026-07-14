@@ -1,0 +1,13 @@
+[
+  {
+    "deployment_id": "dep-pay-88",
+    "service": "payment-service",
+    "version": "3.8.1",
+    "previous_version": "3.8.0",
+    "started_at": "2026-07-14T19:05:00Z",
+    "completed_at": "2026-07-14T19:09:00Z",
+    "status": "success",
+    "commit_sha": "b22paytimeout",
+    "changelog": "Tighten client timeouts for failover experiments"
+  }
+]

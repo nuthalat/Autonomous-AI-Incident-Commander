@@ -1,0 +1,115 @@
+[
+  {
+    "evidence_id": "ev-ie-user-report",
+    "source": "user_report",
+    "tool_name": "create_incident",
+    "query_or_parameters": {},
+    "timestamp": "2026-07-14T22:30:00Z",
+    "finding": "Single anecdotal report without reproducible request IDs",
+    "confidence": 0.35,
+    "evidence_uri": "fixture://evidence/ev-ie-user-report",
+    "raw_reference_id": "inc-ie-001",
+    "redaction_status": "not_required",
+    "related_services": [
+      "frontend"
+    ],
+    "tags": []
+  },
+  {
+    "evidence_id": "ev-ie-metric-flat",
+    "source": "metrics",
+    "tool_name": "detect_metric_anomaly",
+    "query_or_parameters": {},
+    "timestamp": "2026-07-14T22:30:00Z",
+    "finding": "No statistically significant error-rate or latency anomaly detected",
+    "confidence": 0.7,
+    "evidence_uri": "fixture://evidence/ev-ie-metric-flat",
+    "raw_reference_id": "m-ie-error-rate",
+    "redaction_status": "not_required",
+    "related_services": [
+      "checkout-api"
+    ],
+    "tags": []
+  },
+  {
+    "evidence_id": "ev-ie-log-sparse",
+    "source": "logs",
+    "tool_name": "search_logs",
+    "query_or_parameters": {},
+    "timestamp": "2026-07-14T22:30:00Z",
+    "finding": "Only successful checkout info logs found near the reported window",
+    "confidence": 0.65,
+    "evidence_uri": "fixture://evidence/ev-ie-log-sparse",
+    "raw_reference_id": "log-ie-1",
+    "redaction_status": "not_required",
+    "related_services": [
+      "checkout-api"
+    ],
+    "tags": []
+  },
+  {
+    "evidence_id": "ev-ie-trace-missing",
+    "source": "traces",
+    "tool_name": "search_traces",
+    "query_or_parameters": {},
+    "timestamp": "2026-07-14T22:30:00Z",
+    "finding": "Sampled traces in window completed successfully with normal latency",
+    "confidence": 0.68,
+    "evidence_uri": "fixture://evidence/ev-ie-trace-missing",
+    "raw_reference_id": "tr-ie-1",
+    "redaction_status": "not_required",
+    "related_services": [
+      "frontend",
+      "checkout-api"
+    ],
+    "tags": []
+  },
+  {
+    "evidence_id": "ev-ie-deploy-none",
+    "source": "deployment",
+    "tool_name": "list_deployments",
+    "query_or_parameters": {},
+    "timestamp": "2026-07-10T12:15:00Z",
+    "finding": "No deployments in the 24h preceding the report",
+    "confidence": 0.8,
+    "evidence_uri": "fixture://evidence/ev-ie-deploy-none",
+    "raw_reference_id": "dep-ie-stale",
+    "redaction_status": "not_required",
+    "related_services": [
+      "checkout-api"
+    ],
+    "tags": []
+  },
+  {
+    "evidence_id": "ev-ie-runbook-generic",
+    "source": "runbook",
+    "tool_name": "search_runbooks",
+    "query_or_parameters": {},
+    "timestamp": "2026-07-14T22:30:00Z",
+    "finding": "Triage runbook: avoid rollback without corroborating evidence",
+    "confidence": 0.75,
+    "evidence_uri": "fixture://evidence/ev-ie-runbook-generic",
+    "raw_reference_id": "rb-ie-generic",
+    "redaction_status": "not_required",
+    "related_services": [
+      "checkout-api"
+    ],
+    "tags": []
+  },
+  {
+    "evidence_id": "ev-ie-hist-unrelated",
+    "source": "historical_incident",
+    "tool_name": "search_historical_incidents",
+    "query_or_parameters": {},
+    "timestamp": "2026-07-14T22:30:00Z",
+    "finding": "Prior similar anecdote closed with no production defect",
+    "confidence": 0.6,
+    "evidence_uri": "fixture://evidence/ev-ie-hist-unrelated",
+    "raw_reference_id": "inc-hist-2026-003",
+    "redaction_status": "not_required",
+    "related_services": [
+      "frontend"
+    ],
+    "tags": []
+  }
+]

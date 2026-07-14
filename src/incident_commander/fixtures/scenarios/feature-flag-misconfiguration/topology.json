@@ -1,0 +1,60 @@
+{
+  "environment": "production",
+  "services": [
+    {
+      "name": "frontend",
+      "kind": "web",
+      "owner": "storefront",
+      "language": "typescript",
+      "depends_on": [
+        "checkout-api"
+      ]
+    },
+    {
+      "name": "checkout-api",
+      "kind": "service",
+      "owner": "checkout",
+      "language": "python",
+      "depends_on": [
+        "inventory-service",
+        "payment-service",
+        "postgres",
+        "redis"
+      ]
+    },
+    {
+      "name": "inventory-service",
+      "kind": "service",
+      "owner": "inventory",
+      "language": "go",
+      "depends_on": [
+        "postgres",
+        "redis"
+      ]
+    },
+    {
+      "name": "payment-service",
+      "kind": "service",
+      "owner": "payments",
+      "language": "java",
+      "depends_on": [
+        "postgres",
+        "redis"
+      ]
+    },
+    {
+      "name": "postgres",
+      "kind": "datastore",
+      "owner": "platform",
+      "language": null,
+      "depends_on": []
+    },
+    {
+      "name": "redis",
+      "kind": "cache",
+      "owner": "platform",
+      "language": null,
+      "depends_on": []
+    }
+  ]
+}

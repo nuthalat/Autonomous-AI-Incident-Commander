@@ -1,0 +1,34 @@
+[
+  {
+    "log_id": "log-cpe-1",
+    "timestamp": "2026-07-14T18:05:12Z",
+    "service": "checkout-api",
+    "level": "ERROR",
+    "message": "TimeoutError: QueuePool limit of size 10 overflow 0 reached",
+    "fields": {
+      "exception": "sqlalchemy.exc.TimeoutError",
+      "pool_size": 10
+    }
+  },
+  {
+    "log_id": "log-cpe-2",
+    "timestamp": "2026-07-14T18:05:13Z",
+    "service": "checkout-api",
+    "level": "ERROR",
+    "message": "checkout failed while reserving inventory",
+    "fields": {
+      "route": "/checkout",
+      "request_id": "req-cpe-42"
+    }
+  },
+  {
+    "log_id": "log-cpe-3",
+    "timestamp": "2026-07-14T18:02:01Z",
+    "service": "checkout-api",
+    "level": "INFO",
+    "message": "Applied database pool settings pool_size=10 max_overflow=0",
+    "fields": {
+      "config_key": "DATABASE_POOL_SIZE"
+    }
+  }
+]

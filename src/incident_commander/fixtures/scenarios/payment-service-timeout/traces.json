@@ -1,0 +1,33 @@
+[
+  {
+    "trace_id": "tr-pay-77",
+    "root_service": "checkout-api",
+    "root_operation": "CheckoutService.pay",
+    "duration_ms": 210,
+    "status": "error",
+    "spans": [
+      {
+        "span_id": "sp-pay-1",
+        "parent_span_id": null,
+        "service": "checkout-api",
+        "operation": "CheckoutService.pay",
+        "duration_ms": 210,
+        "status": "error",
+        "attributes": {
+          "error": "deadline_exceeded"
+        }
+      },
+      {
+        "span_id": "sp-pay-2",
+        "parent_span_id": "sp-pay-1",
+        "service": "payment-service",
+        "operation": "Authorize",
+        "duration_ms": 200,
+        "status": "error",
+        "attributes": {
+          "timeout_ms": 200
+        }
+      }
+    ]
+  }
+]

@@ -1,0 +1,12 @@
+[
+  {
+    "change_id": "cfg-pay-timeout",
+    "service": "checkout-api",
+    "key": "PAYMENT_CLIENT_TIMEOUT_MS",
+    "old_value": "2000",
+    "new_value": "200",
+    "changed_at": "2026-07-14T19:08:30Z",
+    "actor": "feature-flag-sync",
+    "change_type": "config"
+  }
+]

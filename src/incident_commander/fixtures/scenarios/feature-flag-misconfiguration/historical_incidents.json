@@ -1,0 +1,14 @@
+[
+  {
+    "incident_id": "inc-hist-2026-041",
+    "title": "Partial inventory flag rollout caused reserve errors",
+    "summary": "Flag enabled before clients sent warehouse_id.",
+    "root_cause": "Feature flag enabled without client contract readiness",
+    "services": [
+      "inventory-service",
+      "checkout-api"
+    ],
+    "resolved_at": "2026-05-10T09:30:00Z",
+    "similarity_notes": "Same ReservationRejected warehouse_id message"
+  }
+]

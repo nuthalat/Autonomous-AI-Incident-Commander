@@ -1,0 +1,15 @@
+[
+  {
+    "change_id": "code-ff-1",
+    "service": "inventory-service",
+    "commit_sha": "c33flagpath",
+    "title": "New reservation path requires warehouse_id",
+    "author": "inventory@example.com",
+    "committed_at": "2026-07-13T18:00:00Z",
+    "files_changed": [
+      "reservation/new_path.go"
+    ],
+    "diff_excerpt": "+ if flag && warehouseID == \"\" { return ErrWarehouseRequired }",
+    "pull_request": "PR-450"
+  }
+]

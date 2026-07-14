@@ -1,0 +1,15 @@
+[
+  {
+    "change_id": "code-q-1",
+    "service": "checkout-api",
+    "commit_sha": "d44retrybomb",
+    "title": "Make inventory retries more aggressive",
+    "author": "checkout@example.com",
+    "committed_at": "2026-07-14T19:30:00Z",
+    "files_changed": [
+      "checkout_api/retries.py"
+    ],
+    "diff_excerpt": "- max_attempts = 3\n+ max_attempts = 20\n- backoff_ms = 250\n+ backoff_ms = 0",
+    "pull_request": "PR-2011"
+  }
+]

@@ -1,0 +1,17 @@
+[
+  {
+    "runbook_id": "rb-ie-generic",
+    "title": "Insufficient signal triage",
+    "service": "checkout-api",
+    "summary": "When metrics are flat, avoid destructive changes and request more evidence.",
+    "steps": [
+      "Confirm absence of metric anomalies",
+      "Ask support for reproducible request IDs",
+      "Do not roll back without evidence"
+    ],
+    "tags": [
+      "triage",
+      "insufficient-evidence"
+    ]
+  }
+]

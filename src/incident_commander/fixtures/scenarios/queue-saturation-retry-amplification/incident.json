@@ -1,0 +1,34 @@
+{
+  "incident_id": "inc-q-001",
+  "title": "Checkout queue depth exploding",
+  "description": "Redis checkout retry queue depth exceeded 50k. Investigate amplification and recommend a safe response.",
+  "reported_at": "2026-07-14T21:15:00Z",
+  "severity": "sev2",
+  "reporter": "platform-oncall",
+  "environment": "production",
+  "affected_services": [
+    "checkout-api",
+    "inventory-service",
+    "redis"
+  ],
+  "symptoms": [
+    {
+      "symptom_id": "sym-q-1",
+      "description": "redis list checkout:retries length > 50000",
+      "service": "redis",
+      "first_seen_at": "2026-07-14T21:05:00Z",
+      "confidence": 0.96,
+      "tags": [
+        "queue"
+      ]
+    }
+  ],
+  "tags": [
+    "retry",
+    "redis"
+  ],
+  "source": "api",
+  "metadata": {
+    "scenario": "queue-saturation-retry-amplification"
+  }
+}

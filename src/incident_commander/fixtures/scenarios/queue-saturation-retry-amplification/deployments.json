@@ -1,0 +1,13 @@
+[
+  {
+    "deployment_id": "dep-q-checkout-230",
+    "service": "checkout-api",
+    "version": "1.25.0",
+    "previous_version": "1.24.0",
+    "started_at": "2026-07-14T20:55:00Z",
+    "completed_at": "2026-07-14T21:00:00Z",
+    "status": "success",
+    "commit_sha": "d44retrybomb",
+    "changelog": "Increase inventory retry aggressiveness"
+  }
+]

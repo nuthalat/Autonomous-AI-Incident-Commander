@@ -1,0 +1,15 @@
+[
+  {
+    "change_id": "code-pay-1",
+    "service": "payment-service",
+    "commit_sha": "b22paytimeout",
+    "title": "Expose aggressive timeout defaults for checkout client",
+    "author": "payments@example.com",
+    "committed_at": "2026-07-14T18:40:00Z",
+    "files_changed": [
+      "clients/checkout_timeouts.yaml"
+    ],
+    "diff_excerpt": "- timeout_ms: 2000\n+ timeout_ms: 200",
+    "pull_request": "PR-991"
+  }
+]

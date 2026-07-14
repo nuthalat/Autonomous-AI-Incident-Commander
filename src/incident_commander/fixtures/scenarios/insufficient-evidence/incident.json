@@ -1,0 +1,32 @@
+{
+  "incident_id": "inc-ie-001",
+  "title": "Intermittent checkout confusion reported",
+  "description": "A single customer reported checkout 'felt slow' around 22:00Z. No pages fired. Investigate if there is a production issue.",
+  "reported_at": "2026-07-14T22:35:00Z",
+  "severity": "sev4",
+  "reporter": "support-tier1",
+  "environment": "production",
+  "affected_services": [
+    "checkout-api",
+    "frontend"
+  ],
+  "symptoms": [
+    {
+      "symptom_id": "sym-ie-1",
+      "description": "Single anecdotal report of slow checkout",
+      "service": "frontend",
+      "first_seen_at": "2026-07-14T22:00:00Z",
+      "confidence": 0.3,
+      "tags": [
+        "anecdotal"
+      ]
+    }
+  ],
+  "tags": [
+    "insufficient-evidence"
+  ],
+  "source": "support",
+  "metadata": {
+    "scenario": "insufficient-evidence"
+  }
+}
