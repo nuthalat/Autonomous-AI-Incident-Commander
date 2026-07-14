@@ -61,11 +61,11 @@ langgraph = [
 incident-commander = "incident_commander.cli.__main__:main"
 
 [project.urls]
-Homepage = "https://github.com/tejasvi/autonomous-ai-incident-commander"
-Documentation = "https://github.com/tejasvi/autonomous-ai-incident-commander#readme"
-Repository = "https://github.com/tejasvi/autonomous-ai-incident-commander"
-Issues = "https://github.com/tejasvi/autonomous-ai-incident-commander/issues"
-Changelog = "https://github.com/tejasvi/autonomous-ai-incident-commander/blob/main/CHANGELOG.md"
+Homepage = "https://github.com/nuthalat/Autonomous-AI-Incident-Commander"
+Documentation = "https://github.com/nuthalat/Autonomous-AI-Incident-Commander#readme"
+Repository = "https://github.com/nuthalat/Autonomous-AI-Incident-Commander"
+Issues = "https://github.com/nuthalat/Autonomous-AI-Incident-Commander/issues"
+Changelog = "https://github.com/nuthalat/Autonomous-AI-Incident-Commander/blob/dev/CHANGELOG.md"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/incident_commander", "servers"]
