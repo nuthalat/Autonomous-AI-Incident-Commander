@@ -22,7 +22,7 @@ flowchart LR
   Agents -.-> MCP
 ```
 
-## Stage 1 scope
+## Stage status
 
 | Component | Status |
 | --- | --- |
@@ -30,6 +30,9 @@ flowchart LR
 | `GET /health`, `GET /ready` | Implemented |
 | Fake model (default) | Implemented |
 | Anthropic adapter interface | Implemented (no live prompts) |
+| Domain model + `IncidentState` | Implemented (Stage 2) |
+| Phase transitions / approval gates | Implemented (Stage 2) |
+| Synthetic incident scenarios | Implemented (Stage 2) |
 | LangGraph agents | Package reserved |
 | MCP tool runtimes | Metadata registries only |
 | Persistence / OTEL exporters | Package reserved |

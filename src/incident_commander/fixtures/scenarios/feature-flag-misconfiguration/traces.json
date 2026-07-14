@@ -1,0 +1,31 @@
+[
+  {
+    "trace_id": "tr-ff-12",
+    "root_service": "checkout-api",
+    "root_operation": "reserve_inventory",
+    "duration_ms": 35,
+    "status": "error",
+    "spans": [
+      {
+        "span_id": "sp-ff-1",
+        "parent_span_id": null,
+        "service": "checkout-api",
+        "operation": "reserve_inventory",
+        "duration_ms": 35,
+        "status": "error",
+        "attributes": {}
+      },
+      {
+        "span_id": "sp-ff-2",
+        "parent_span_id": "sp-ff-1",
+        "service": "inventory-service",
+        "operation": "Reserve",
+        "duration_ms": 20,
+        "status": "error",
+        "attributes": {
+          "error.type": "ReservationRejected"
+        }
+      }
+    ]
+  }
+]

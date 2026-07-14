@@ -1,0 +1,13 @@
+[
+  {
+    "deployment_id": "dep-cpe-checkout-224",
+    "service": "checkout-api",
+    "version": "1.24.0",
+    "previous_version": "1.23.2",
+    "started_at": "2026-07-14T17:55:00Z",
+    "completed_at": "2026-07-14T18:00:30Z",
+    "status": "success",
+    "commit_sha": "a11c0depool01",
+    "changelog": "Tune DB pool defaults; reduce idle connections"
+  }
+]

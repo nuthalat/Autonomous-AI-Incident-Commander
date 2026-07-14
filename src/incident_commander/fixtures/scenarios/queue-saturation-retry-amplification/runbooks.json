@@ -1,0 +1,18 @@
+[
+  {
+    "runbook_id": "rb-q-1",
+    "title": "Checkout retry queue amplification",
+    "service": "checkout-api",
+    "summary": "Pause retry workers, restore retry policy, drain queue safely.",
+    "steps": [
+      "Confirm queue_depth and retry_total correlation",
+      "Disable retry enqueue with approval",
+      "Restore prior retry/backoff config",
+      "Drain queue in controlled batches"
+    ],
+    "tags": [
+      "redis",
+      "retries"
+    ]
+  }
+]

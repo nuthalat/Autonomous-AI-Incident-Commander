@@ -1,0 +1,12 @@
+[
+  {
+    "change_id": "cfg-ff-1",
+    "service": "inventory-service",
+    "key": "inventory.use_new_reservation_path",
+    "old_value": "10%",
+    "new_value": "100%",
+    "changed_at": "2026-07-14T15:30:00Z",
+    "actor": "flag-console",
+    "change_type": "feature_flag"
+  }
+]

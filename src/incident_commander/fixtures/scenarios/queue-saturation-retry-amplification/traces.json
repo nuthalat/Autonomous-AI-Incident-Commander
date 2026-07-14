@@ -1,0 +1,44 @@
+[
+  {
+    "trace_id": "tr-q-9",
+    "root_service": "checkout-api",
+    "root_operation": "retry_worker",
+    "duration_ms": 1800,
+    "status": "error",
+    "spans": [
+      {
+        "span_id": "sp-q-1",
+        "parent_span_id": null,
+        "service": "checkout-api",
+        "operation": "retry_worker",
+        "duration_ms": 1800,
+        "status": "error",
+        "attributes": {
+          "attempts": 20
+        }
+      },
+      {
+        "span_id": "sp-q-2",
+        "parent_span_id": "sp-q-1",
+        "service": "inventory-service",
+        "operation": "Reserve",
+        "duration_ms": 40,
+        "status": "error",
+        "attributes": {
+          "error": "unavailable"
+        }
+      },
+      {
+        "span_id": "sp-q-3",
+        "parent_span_id": "sp-q-1",
+        "service": "redis",
+        "operation": "LPUSH checkout:retries",
+        "duration_ms": 5,
+        "status": "ok",
+        "attributes": {
+          "queue_depth_after": 54001
+        }
+      }
+    ]
+  }
+]

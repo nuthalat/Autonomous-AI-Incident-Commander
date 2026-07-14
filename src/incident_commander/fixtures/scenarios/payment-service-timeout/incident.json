@@ -1,0 +1,34 @@
+{
+  "incident_id": "inc-pay-001",
+  "title": "Checkout failing with payment timeouts",
+  "description": "Payment authorization timeouts increased after 19:10Z. Orders stuck in pending_payment. Investigate likely cause and recommend safe response.",
+  "reported_at": "2026-07-14T19:25:00Z",
+  "severity": "sev1",
+  "reporter": "checkout-oncall",
+  "environment": "production",
+  "affected_services": [
+    "checkout-api",
+    "payment-service",
+    "frontend"
+  ],
+  "symptoms": [
+    {
+      "symptom_id": "sym-pay-1",
+      "description": "payment authorize timeout rate > 30%",
+      "service": "payment-service",
+      "first_seen_at": "2026-07-14T19:12:00Z",
+      "confidence": 0.94,
+      "tags": [
+        "timeout"
+      ]
+    }
+  ],
+  "tags": [
+    "payments",
+    "timeout"
+  ],
+  "source": "api",
+  "metadata": {
+    "scenario": "payment-service-timeout"
+  }
+}

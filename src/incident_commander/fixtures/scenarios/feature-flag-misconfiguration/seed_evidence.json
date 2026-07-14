@@ -1,0 +1,115 @@
+[
+  {
+    "evidence_id": "ev-ff-metric-inventory",
+    "source": "metrics",
+    "tool_name": "detect_metric_anomaly",
+    "query_or_parameters": {},
+    "timestamp": "2026-07-14T15:40:00Z",
+    "finding": "inventory Reserve error rate jumped to ~40% at 15:35Z",
+    "confidence": 0.92,
+    "evidence_uri": "fixture://evidence/ev-ff-metric-inventory",
+    "raw_reference_id": "m-ff-reserve-errors",
+    "redaction_status": "not_required",
+    "related_services": [
+      "inventory-service"
+    ],
+    "tags": []
+  },
+  {
+    "evidence_id": "ev-ff-log-flag",
+    "source": "logs",
+    "tool_name": "search_logs",
+    "query_or_parameters": {},
+    "timestamp": "2026-07-14T15:40:00Z",
+    "finding": "Errors require warehouse_id when new reservation path enabled",
+    "confidence": 0.95,
+    "evidence_uri": "fixture://evidence/ev-ff-log-flag",
+    "raw_reference_id": "log-ff-1",
+    "redaction_status": "not_required",
+    "related_services": [
+      "inventory-service"
+    ],
+    "tags": []
+  },
+  {
+    "evidence_id": "ev-ff-trace-inventory",
+    "source": "traces",
+    "tool_name": "search_traces",
+    "query_or_parameters": {},
+    "timestamp": "2026-07-14T15:40:00Z",
+    "finding": "checkout\u2192inventory Reserve spans fail with ReservationRejected",
+    "confidence": 0.88,
+    "evidence_uri": "fixture://evidence/ev-ff-trace-inventory",
+    "raw_reference_id": "tr-ff-12",
+    "redaction_status": "not_required",
+    "related_services": [
+      "checkout-api",
+      "inventory-service"
+    ],
+    "tags": []
+  },
+  {
+    "evidence_id": "ev-ff-flag-history",
+    "source": "configuration",
+    "tool_name": "get_feature_flag_history",
+    "query_or_parameters": {},
+    "timestamp": "2026-07-14T15:30:00Z",
+    "finding": "Flag inventory.use_new_reservation_path rolled 10%\u2192100% at 15:30Z",
+    "confidence": 0.97,
+    "evidence_uri": "fixture://evidence/ev-ff-flag-history",
+    "raw_reference_id": "cfg-ff-1",
+    "redaction_status": "not_required",
+    "related_services": [
+      "inventory-service"
+    ],
+    "tags": []
+  },
+  {
+    "evidence_id": "ev-ff-code-path",
+    "source": "code",
+    "tool_name": "search_code",
+    "query_or_parameters": {},
+    "timestamp": "2026-07-13T18:00:00Z",
+    "finding": "New path rejects missing warehouse_id when flag enabled",
+    "confidence": 0.9,
+    "evidence_uri": "fixture://evidence/ev-ff-code-path",
+    "raw_reference_id": "code-ff-1",
+    "redaction_status": "not_required",
+    "related_services": [
+      "inventory-service"
+    ],
+    "tags": []
+  },
+  {
+    "evidence_id": "ev-ff-runbook",
+    "source": "runbook",
+    "tool_name": "search_runbooks",
+    "query_or_parameters": {},
+    "timestamp": "2026-07-14T15:40:00Z",
+    "finding": "Runbook advises rolling flag back with approval",
+    "confidence": 0.8,
+    "evidence_uri": "fixture://evidence/ev-ff-runbook",
+    "raw_reference_id": "rb-ff-1",
+    "redaction_status": "not_required",
+    "related_services": [
+      "inventory-service"
+    ],
+    "tags": []
+  },
+  {
+    "evidence_id": "ev-ff-hist",
+    "source": "historical_incident",
+    "tool_name": "search_historical_incidents",
+    "query_or_parameters": {},
+    "timestamp": "2026-07-14T15:40:00Z",
+    "finding": "Similar prior flag incident resolved by disabling flag",
+    "confidence": 0.78,
+    "evidence_uri": "fixture://evidence/ev-ff-hist",
+    "raw_reference_id": "inc-hist-2026-041",
+    "redaction_status": "not_required",
+    "related_services": [
+      "inventory-service"
+    ],
+    "tags": []
+  }
+]

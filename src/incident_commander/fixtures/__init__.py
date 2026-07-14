@@ -1,6 +1,19 @@
-"""Synthetic incident fixtures for local demos and evaluation.
+"""Synthetic incident fixtures for local demos and evaluation."""
 
-Stage 1 reserves this package. Five scenario packs (connection-pool exhaustion,
-payment timeouts, feature-flag misconfiguration, queue saturation, and
-insufficient-evidence) are added in a later stage.
-"""
+from incident_commander.fixtures.loader import (
+    clear_scenario_cache,
+    list_scenario_ids,
+    load_scenario,
+    load_scenario_cached,
+    load_scenario_from_dir,
+)
+from incident_commander.fixtures.schema import ScenarioBundle
+
+__all__ = [
+    "ScenarioBundle",
+    "clear_scenario_cache",
+    "list_scenario_ids",
+    "load_scenario",
+    "load_scenario_cached",
+    "load_scenario_from_dir",
+]

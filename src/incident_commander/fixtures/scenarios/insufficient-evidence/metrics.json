@@ -1,0 +1,56 @@
+[
+  {
+    "metric_id": "m-ie-error-rate",
+    "name": "http_request_error_rate",
+    "service": "checkout-api",
+    "unit": "ratio",
+    "labels": {
+      "route": "/checkout"
+    },
+    "points": [
+      {
+        "timestamp": "2026-07-14T21:50:00Z",
+        "value": 0.002
+      },
+      {
+        "timestamp": "2026-07-14T22:00:00Z",
+        "value": 0.002
+      },
+      {
+        "timestamp": "2026-07-14T22:10:00Z",
+        "value": 0.003
+      },
+      {
+        "timestamp": "2026-07-14T22:20:00Z",
+        "value": 0.002
+      }
+    ]
+  },
+  {
+    "metric_id": "m-ie-latency",
+    "name": "http_request_latency_p95_ms",
+    "service": "checkout-api",
+    "unit": "milliseconds",
+    "labels": {
+      "route": "/checkout"
+    },
+    "points": [
+      {
+        "timestamp": "2026-07-14T21:50:00Z",
+        "value": 220
+      },
+      {
+        "timestamp": "2026-07-14T22:00:00Z",
+        "value": 230
+      },
+      {
+        "timestamp": "2026-07-14T22:10:00Z",
+        "value": 225
+      },
+      {
+        "timestamp": "2026-07-14T22:20:00Z",
+        "value": 228
+      }
+    ]
+  }
+]

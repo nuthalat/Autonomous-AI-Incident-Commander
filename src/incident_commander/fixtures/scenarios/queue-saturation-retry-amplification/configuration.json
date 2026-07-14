@@ -1,0 +1,22 @@
+[
+  {
+    "change_id": "cfg-q-retry",
+    "service": "checkout-api",
+    "key": "INVENTORY_RETRY_MAX",
+    "old_value": "3",
+    "new_value": "20",
+    "changed_at": "2026-07-14T20:58:00Z",
+    "actor": "deploy-bot",
+    "change_type": "config"
+  },
+  {
+    "change_id": "cfg-q-backoff",
+    "service": "checkout-api",
+    "key": "INVENTORY_RETRY_BACKOFF_MS",
+    "old_value": "250",
+    "new_value": "0",
+    "changed_at": "2026-07-14T20:58:00Z",
+    "actor": "deploy-bot",
+    "change_type": "config"
+  }
+]

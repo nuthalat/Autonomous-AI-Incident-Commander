@@ -1,0 +1,24 @@
+[
+  {
+    "log_id": "log-ff-1",
+    "timestamp": "2026-07-14T15:32:00Z",
+    "service": "inventory-service",
+    "level": "ERROR",
+    "message": "ReservationRejected: warehouse_id required when new path enabled",
+    "fields": {
+      "flag": "inventory.use_new_reservation_path",
+      "flag_value": "true"
+    }
+  },
+  {
+    "log_id": "log-ff-2",
+    "timestamp": "2026-07-14T15:30:05Z",
+    "service": "inventory-service",
+    "level": "INFO",
+    "message": "Feature flag inventory.use_new_reservation_path=100%",
+    "fields": {
+      "flag": "inventory.use_new_reservation_path",
+      "rollout": "100"
+    }
+  }
+]

@@ -1,0 +1,17 @@
+[
+  {
+    "runbook_id": "rb-pay-timeout",
+    "title": "Payment authorize timeout surge",
+    "service": "payment-service",
+    "summary": "Compare client timeout to payment p95 latency before rollback.",
+    "steps": [
+      "Check payment authorize p95",
+      "Inspect PAYMENT_CLIENT_TIMEOUT_MS",
+      "Restore timeout to previous value with approval"
+    ],
+    "tags": [
+      "timeout",
+      "payments"
+    ]
+  }
+]

@@ -1,0 +1,44 @@
+{
+  "incident_id": "inc-cpe-001",
+  "title": "Checkout errors increased after recent deployment",
+  "description": "Customers report checkout failures. Error rate increased immediately after the checkout-api deployment. Investigate the likely cause and recommend a safe response.",
+  "reported_at": "2026-07-14T18:10:00Z",
+  "severity": "sev2",
+  "reporter": "sre-oncall",
+  "environment": "production",
+  "affected_services": [
+    "checkout-api",
+    "frontend",
+    "postgres"
+  ],
+  "symptoms": [
+    {
+      "symptom_id": "sym-cpe-1",
+      "description": "HTTP 500 rate on /checkout increased from 0.2% to 8%",
+      "service": "checkout-api",
+      "first_seen_at": "2026-07-14T18:04:00Z",
+      "confidence": 0.95,
+      "tags": [
+        "error-rate"
+      ]
+    },
+    {
+      "symptom_id": "sym-cpe-2",
+      "description": "Customers see 'Unable to complete purchase' banner",
+      "service": "frontend",
+      "first_seen_at": "2026-07-14T18:06:00Z",
+      "confidence": 0.9,
+      "tags": [
+        "customer-impact"
+      ]
+    }
+  ],
+  "tags": [
+    "checkout",
+    "deployment"
+  ],
+  "source": "pagerduty",
+  "metadata": {
+    "scenario": "connection-pool-exhaustion"
+  }
+}

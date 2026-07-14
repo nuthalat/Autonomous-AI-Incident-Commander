@@ -1,0 +1,117 @@
+[
+  {
+    "evidence_id": "ev-pay-metric-latency",
+    "source": "metrics",
+    "tool_name": "query_metric",
+    "query_or_parameters": {},
+    "timestamp": "2026-07-14T19:20:00Z",
+    "finding": "payment authorize p95 remains ~450ms while timeouts surge",
+    "confidence": 0.9,
+    "evidence_uri": "fixture://evidence/ev-pay-metric-latency",
+    "raw_reference_id": "m-pay-auth-p95",
+    "redaction_status": "not_required",
+    "related_services": [
+      "payment-service"
+    ],
+    "tags": []
+  },
+  {
+    "evidence_id": "ev-pay-log-timeout",
+    "source": "logs",
+    "tool_name": "search_logs",
+    "query_or_parameters": {},
+    "timestamp": "2026-07-14T19:20:00Z",
+    "finding": "checkout-api logs deadline exceeded after 200ms",
+    "confidence": 0.94,
+    "evidence_uri": "fixture://evidence/ev-pay-log-timeout",
+    "raw_reference_id": "log-pay-1",
+    "redaction_status": "not_required",
+    "related_services": [
+      "checkout-api",
+      "payment-service"
+    ],
+    "tags": []
+  },
+  {
+    "evidence_id": "ev-pay-trace-payment",
+    "source": "traces",
+    "tool_name": "get_trace",
+    "query_or_parameters": {},
+    "timestamp": "2026-07-14T19:20:00Z",
+    "finding": "Trace ends at payment Authorize with timeout_ms=200",
+    "confidence": 0.91,
+    "evidence_uri": "fixture://evidence/ev-pay-trace-payment",
+    "raw_reference_id": "tr-pay-77",
+    "redaction_status": "not_required",
+    "related_services": [
+      "checkout-api",
+      "payment-service"
+    ],
+    "tags": []
+  },
+  {
+    "evidence_id": "ev-pay-deploy-payment",
+    "source": "deployment",
+    "tool_name": "list_deployments",
+    "query_or_parameters": {},
+    "timestamp": "2026-07-14T19:09:00Z",
+    "finding": "payment-service 3.8.1 deployed minutes before timeout surge",
+    "confidence": 0.84,
+    "evidence_uri": "fixture://evidence/ev-pay-deploy-payment",
+    "raw_reference_id": "dep-pay-88",
+    "redaction_status": "not_required",
+    "related_services": [
+      "payment-service"
+    ],
+    "tags": []
+  },
+  {
+    "evidence_id": "ev-pay-config-timeout",
+    "source": "configuration",
+    "tool_name": "list_config_changes",
+    "query_or_parameters": {},
+    "timestamp": "2026-07-14T19:08:30Z",
+    "finding": "PAYMENT_CLIENT_TIMEOUT_MS changed 2000\u2192200",
+    "confidence": 0.97,
+    "evidence_uri": "fixture://evidence/ev-pay-config-timeout",
+    "raw_reference_id": "cfg-pay-timeout",
+    "redaction_status": "not_required",
+    "related_services": [
+      "checkout-api"
+    ],
+    "tags": []
+  },
+  {
+    "evidence_id": "ev-pay-runbook",
+    "source": "runbook",
+    "tool_name": "search_runbooks",
+    "query_or_parameters": {},
+    "timestamp": "2026-07-14T19:20:00Z",
+    "finding": "Runbook says restore timeout when below p95 latency",
+    "confidence": 0.8,
+    "evidence_uri": "fixture://evidence/ev-pay-runbook",
+    "raw_reference_id": "rb-pay-timeout",
+    "redaction_status": "not_required",
+    "related_services": [
+      "payment-service"
+    ],
+    "tags": []
+  },
+  {
+    "evidence_id": "ev-pay-hist",
+    "source": "historical_incident",
+    "tool_name": "get_incident",
+    "query_or_parameters": {},
+    "timestamp": "2026-07-14T19:20:00Z",
+    "finding": "Prior incident restored timeout from aggressive value",
+    "confidence": 0.75,
+    "evidence_uri": "fixture://evidence/ev-pay-hist",
+    "raw_reference_id": "inc-hist-2026-014",
+    "redaction_status": "not_required",
+    "related_services": [
+      "checkout-api",
+      "payment-service"
+    ],
+    "tags": []
+  }
+]

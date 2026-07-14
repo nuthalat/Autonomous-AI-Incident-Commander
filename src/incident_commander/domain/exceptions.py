@@ -137,3 +137,29 @@ class AgentError(IncidentCommanderError):
         details: dict[str, Any] | None = None,
     ) -> None:
         super().__init__(message, code=code, details=details)
+
+
+class InvalidStateTransitionError(ValidationFailureError):
+    """Raised when an incident phase transition is not allowed."""
+
+    def __init__(
+        self,
+        message: str,
+        *,
+        code: str = "invalid_state_transition",
+        details: dict[str, Any] | None = None,
+    ) -> None:
+        super().__init__(message, code=code, details=details)
+
+
+class FixtureValidationError(ValidationFailureError):
+    """Raised when a synthetic incident fixture fails validation."""
+
+    def __init__(
+        self,
+        message: str,
+        *,
+        code: str = "fixture_validation_error",
+        details: dict[str, Any] | None = None,
+    ) -> None:
+        super().__init__(message, code=code, details=details)
