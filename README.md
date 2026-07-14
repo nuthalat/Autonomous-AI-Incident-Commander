@@ -180,7 +180,75 @@ No evaluation runs yet (agents/scenarios arrive in later stages).
 6. Evaluation harness and baseline comparisons
 7. Persistence, OTEL, and richer CLI/API
 
-## 16. Contributing
+## 16. Portability to other systems
+
+This repo separates a portable **agentic control plane** from swappable
+**integrations**. You should not need to rewrite orchestration to point the
+system at another company’s stack — or even at a different agentic problem.
+
+### What stays the same
+
+- Typed investigation state (`IncidentState`, evidence, hypotheses, reports)
+- Phase transitions and approval gates (no investigate → execute shortcuts)
+- `ModelClient` interface + dependency injection
+- MCP **tool names/contracts** agents call
+- Safety defaults: read-only / dry-run, human approval for writes
+
+### What you swap (and where)
+
+| To port… | Update these |
+| --- | --- |
+| Environment / safety / model / DB | `.env` ← from [`.env.example`](.env.example); schema in [`src/incident_commander/config.py`](src/incident_commander/config.py) |
+| LLM vendor | [`src/incident_commander/services/llm/`](src/incident_commander/services/llm/) — implement `ModelClient`, register in `create_model_client()` |
+| Metrics / logs / traces backend | [`servers/observability_mcp/`](servers/observability_mcp/) (+ future `mcp_clients` adapter) |
+| Deploy / config / rollback system | [`servers/deployment_mcp/`](servers/deployment_mcp/) — keep `execute_approved_rollback` approval-gated |
+| Topology, runbooks, ownership docs | [`servers/knowledge_mcp/`](servers/knowledge_mcp/) and scenario `topology.json` / `runbooks.json` |
+| Git provider | [`servers/source_control_mcp/`](servers/source_control_mcp/) — keep GitHub-compatible tool surface |
+| Ticketing / approvals / follow-ups | [`servers/incident_management_mcp/`](servers/incident_management_mcp/) |
+| Your services + sample incidents | [`src/incident_commander/fixtures/scenarios/`](src/incident_commander/fixtures/scenarios/) validated by [`fixtures/schema.py`](src/incident_commander/fixtures/schema.py) |
+| Agent tool allowlists / phases | [`src/incident_commander/agents/`](src/incident_commander/agents/), [`graph/`](src/incident_commander/graph/), [`domain/transitions.py`](src/incident_commander/domain/transitions.py) |
+
+### Typical porting recipe
+
+1. Copy `.env.example` → `.env`; keep `INCIDENT_COMMANDER_DRY_RUN=true` and
+   `INCIDENT_COMMANDER_READ_ONLY=true`.
+2. Choose a model: leave `INCIDENT_COMMANDER_MODEL_PROVIDER=fake` for offline, or
+   set `anthropic` + `ANTHROPIC_API_KEY`.
+3. Replace fixture topology/telemetry with your services under
+   `fixtures/scenarios/<your-scenario>/` (or point MCP adapters at live
+   read-only APIs when those land).
+4. Implement MCP adapters behind the existing tool names — do **not** bake
+   vendor SDKs into agent nodes.
+5. Only then enable write tools, still behind approval tokens.
+
+```mermaid
+flowchart LR
+  subgraph Portable["Portable control plane"]
+    State[IncidentState]
+    Graph[LangGraph workflow]
+    Safety[Approval + transitions]
+    Model[ModelClient]
+  end
+  subgraph Swappable["Swap per target system"]
+    Env[".env / Settings"]
+    MCP[MCP adapters]
+    Fixtures[Scenario fixtures]
+    Vendors[Datadog / GitHub / PagerDuty / ...]
+  end
+  Graph --> State
+  Graph --> Safety
+  Graph --> Model
+  Graph --> MCP
+  MCP --> Vendors
+  Env --> Model
+  Env --> Safety
+  Fixtures --> MCP
+```
+
+Full checklist and anti-patterns:
+[docs/architecture/portability.md](docs/architecture/portability.md).
+
+## 17. Contributing
 
 See [CONTRIBUTING.md](CONTRIBUTING.md), [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md),
 and [SECURITY.md](SECURITY.md).

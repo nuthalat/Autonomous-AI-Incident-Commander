@@ -42,3 +42,9 @@ flowchart LR
 The FastAPI app stores `settings`, `health_service`, and `model_client` on
 `app.state` during `create_app()`. Route handlers retrieve them through
 `incident_commander.api.deps` rather than importing globals.
+
+## Portability
+
+The orchestration/safety core is meant to move across environments by swapping
+settings, model adapters, MCP backends, and scenario fixtures — not by rewriting
+agents around a vendor SDK. See [portability.md](portability.md).
