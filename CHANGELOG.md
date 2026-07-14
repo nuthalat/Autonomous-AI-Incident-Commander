@@ -9,6 +9,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- README and architecture docs on porting the agentic control plane to other
+  systems (env settings, model adapters, MCP backends, fixtures/topology).
 - Stage 2 domain model: `Incident`, `IncidentState`, `Evidence`, `Hypothesis`,
   investigation/impact/remediation/approval/report models with confidence
   validation in `[0, 1]`.
