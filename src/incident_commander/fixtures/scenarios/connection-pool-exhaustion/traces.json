@@ -1,0 +1,43 @@
+[
+  {
+    "trace_id": "tr-cpe-1001",
+    "root_service": "frontend",
+    "root_operation": "POST /api/checkout",
+    "duration_ms": 5200,
+    "status": "error",
+    "spans": [
+      {
+        "span_id": "sp-1",
+        "parent_span_id": null,
+        "service": "frontend",
+        "operation": "POST /api/checkout",
+        "duration_ms": 5200,
+        "status": "error",
+        "attributes": {}
+      },
+      {
+        "span_id": "sp-2",
+        "parent_span_id": "sp-1",
+        "service": "checkout-api",
+        "operation": "CheckoutService.create_order",
+        "duration_ms": 5100,
+        "status": "error",
+        "attributes": {
+          "error": "db_pool_timeout"
+        }
+      },
+      {
+        "span_id": "sp-3",
+        "parent_span_id": "sp-2",
+        "service": "postgres",
+        "operation": "connection.acquire",
+        "duration_ms": 5000,
+        "status": "error",
+        "attributes": {
+          "wait_ms": 5000,
+          "pool_size": 10
+        }
+      }
+    ]
+  }
+]

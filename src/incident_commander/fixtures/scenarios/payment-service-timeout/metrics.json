@@ -1,0 +1,56 @@
+[
+  {
+    "metric_id": "m-pay-auth-p95",
+    "name": "rpc_latency_p95_ms",
+    "service": "payment-service",
+    "unit": "milliseconds",
+    "labels": {
+      "method": "Authorize"
+    },
+    "points": [
+      {
+        "timestamp": "2026-07-14T19:00:00Z",
+        "value": 420
+      },
+      {
+        "timestamp": "2026-07-14T19:10:00Z",
+        "value": 440
+      },
+      {
+        "timestamp": "2026-07-14T19:15:00Z",
+        "value": 455
+      },
+      {
+        "timestamp": "2026-07-14T19:20:00Z",
+        "value": 460
+      }
+    ]
+  },
+  {
+    "metric_id": "m-pay-timeout-rate",
+    "name": "client_timeout_rate",
+    "service": "checkout-api",
+    "unit": "ratio",
+    "labels": {
+      "downstream": "payment-service"
+    },
+    "points": [
+      {
+        "timestamp": "2026-07-14T19:00:00Z",
+        "value": 0.01
+      },
+      {
+        "timestamp": "2026-07-14T19:10:00Z",
+        "value": 0.04
+      },
+      {
+        "timestamp": "2026-07-14T19:15:00Z",
+        "value": 0.33
+      },
+      {
+        "timestamp": "2026-07-14T19:20:00Z",
+        "value": 0.36
+      }
+    ]
+  }
+]

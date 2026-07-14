@@ -1,0 +1,16 @@
+[
+  {
+    "runbook_id": "rb-ff-1",
+    "title": "Disable inventory feature flag safely",
+    "service": "inventory-service",
+    "summary": "Roll flag back to previous percentage with approval.",
+    "steps": [
+      "Confirm error mentions warehouse_id",
+      "Check feature flag history",
+      "Reduce rollout to 0% or previous stage"
+    ],
+    "tags": [
+      "feature-flag"
+    ]
+  }
+]

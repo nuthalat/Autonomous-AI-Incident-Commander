@@ -1,0 +1,34 @@
+{
+  "incident_id": "inc-ff-001",
+  "title": "Inventory reservation failures after flag change",
+  "description": "Checkout cannot reserve inventory. Flag change occurred at 15:30Z. Investigate and recommend safe response.",
+  "reported_at": "2026-07-14T15:45:00Z",
+  "severity": "sev2",
+  "reporter": "inventory-oncall",
+  "environment": "production",
+  "affected_services": [
+    "inventory-service",
+    "checkout-api",
+    "frontend"
+  ],
+  "symptoms": [
+    {
+      "symptom_id": "sym-ff-1",
+      "description": "inventory reserve error rate 40%",
+      "service": "inventory-service",
+      "first_seen_at": "2026-07-14T15:31:00Z",
+      "confidence": 0.93,
+      "tags": [
+        "feature-flag"
+      ]
+    }
+  ],
+  "tags": [
+    "feature-flag",
+    "inventory"
+  ],
+  "source": "slack",
+  "metadata": {
+    "scenario": "feature-flag-misconfiguration"
+  }
+}

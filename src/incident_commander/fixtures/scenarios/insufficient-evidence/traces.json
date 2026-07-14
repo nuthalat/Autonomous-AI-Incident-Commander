@@ -1,0 +1,29 @@
+[
+  {
+    "trace_id": "tr-ie-1",
+    "root_service": "frontend",
+    "root_operation": "POST /api/checkout",
+    "duration_ms": 240,
+    "status": "ok",
+    "spans": [
+      {
+        "span_id": "sp-ie-1",
+        "parent_span_id": null,
+        "service": "frontend",
+        "operation": "POST /api/checkout",
+        "duration_ms": 240,
+        "status": "ok",
+        "attributes": {}
+      },
+      {
+        "span_id": "sp-ie-2",
+        "parent_span_id": "sp-ie-1",
+        "service": "checkout-api",
+        "operation": "CheckoutService.create_order",
+        "duration_ms": 180,
+        "status": "ok",
+        "attributes": {}
+      }
+    ]
+  }
+]

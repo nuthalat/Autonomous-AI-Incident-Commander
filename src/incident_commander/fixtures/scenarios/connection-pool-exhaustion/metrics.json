@@ -1,0 +1,79 @@
+[
+  {
+    "metric_id": "m-cpe-error-rate",
+    "name": "http_request_error_rate",
+    "service": "checkout-api",
+    "unit": "ratio",
+    "labels": {
+      "route": "/checkout"
+    },
+    "points": [
+      {
+        "timestamp": "2026-07-14T17:50:00Z",
+        "value": 0.002
+      },
+      {
+        "timestamp": "2026-07-14T18:00:00Z",
+        "value": 0.003
+      },
+      {
+        "timestamp": "2026-07-14T18:05:00Z",
+        "value": 0.081
+      },
+      {
+        "timestamp": "2026-07-14T18:10:00Z",
+        "value": 0.079
+      }
+    ]
+  },
+  {
+    "metric_id": "m-cpe-pool-wait",
+    "name": "db_connection_pool_wait_seconds",
+    "service": "checkout-api",
+    "unit": "seconds",
+    "labels": {
+      "db": "postgres"
+    },
+    "points": [
+      {
+        "timestamp": "2026-07-14T17:50:00Z",
+        "value": 0.01
+      },
+      {
+        "timestamp": "2026-07-14T18:00:00Z",
+        "value": 0.02
+      },
+      {
+        "timestamp": "2026-07-14T18:05:00Z",
+        "value": 4.8
+      },
+      {
+        "timestamp": "2026-07-14T18:10:00Z",
+        "value": 5.1
+      }
+    ]
+  },
+  {
+    "metric_id": "m-cpe-pool-active",
+    "name": "db_connection_pool_active",
+    "service": "checkout-api",
+    "unit": "count",
+    "labels": {
+      "db": "postgres"
+    },
+    "points": [
+      {
+        "timestamp": "2026-07-14T18:00:00Z",
+        "value": 18
+      },
+      {
+        "timestamp": "2026-07-14T18:05:00Z",
+        "value": 10
+      },
+      {
+        "timestamp": "2026-07-14T18:10:00Z",
+        "value": 10
+      }
+    ]
+  }
+]

@@ -1,0 +1,15 @@
+[
+  {
+    "change_id": "code-ie-1",
+    "service": "checkout-api",
+    "commit_sha": "e55stale",
+    "title": "Bump patch dependencies",
+    "author": "deps-bot",
+    "committed_at": "2026-07-10T11:00:00Z",
+    "files_changed": [
+      "requirements.txt"
+    ],
+    "diff_excerpt": "- lib==1.2.3\n+ lib==1.2.4",
+    "pull_request": "PR-1777"
+  }
+]

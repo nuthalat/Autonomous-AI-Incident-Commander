@@ -1,0 +1,13 @@
+[
+  {
+    "deployment_id": "dep-ie-stale",
+    "service": "checkout-api",
+    "version": "1.23.2",
+    "previous_version": "1.23.1",
+    "started_at": "2026-07-10T12:00:00Z",
+    "completed_at": "2026-07-10T12:15:00Z",
+    "status": "success",
+    "commit_sha": "e55stale",
+    "changelog": "Routine dependency bump four days earlier"
+  }
+]

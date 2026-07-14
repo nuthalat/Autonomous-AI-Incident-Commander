@@ -4,10 +4,9 @@ An agentic incident-response platform that investigates production incidents
 across logs, metrics, deployments, source code, runbooks, and prior tickets,
 then produces an evidence-backed root-cause analysis and remediation plan.
 
-> **Stage 1 (Repository Foundation)** is implemented. Health/readiness APIs,
-> typed settings, structured logging, a deterministic fake model, and the
-> Anthropic adapter interface are available. LangGraph agents, MCP tool
-> runtimes, and synthetic scenarios come in later stages.
+> **Stages 1–2 are implemented.** Stage 1 provides the runnable foundation
+> (health/readiness, settings, fake model). Stage 2 adds the typed domain model,
+> phase-transition safety gates, and five complete synthetic incident scenarios.
 
 ## 1. Project overview
 
@@ -59,7 +58,8 @@ flowchart TB
   Agents --> MCP
 ```
 
-See [docs/architecture/overview.md](docs/architecture/overview.md).
+See [docs/architecture/overview.md](docs/architecture/overview.md) and
+[docs/architecture/domain-model.md](docs/architecture/domain-model.md).
 
 ## 4. Agent responsibilities
 
@@ -72,7 +72,9 @@ Planned flow: Intake → Planning → Topology → Parallel investigation → Ev
 aggregation → Hypotheses → Skeptic review → (optional reinvestigation) → Impact
 → Remediation → Safety → Human approval → Report.
 
-Phase names live in `incident_commander.graph.WORKFLOW_PHASES`.
+Phase names live in `incident_commander.graph.WORKFLOW_PHASES` and are enforced
+by `incident_commander.domain.transitions` (investigation cannot jump directly
+to action execution; executable remediation requires approval).
 
 ## 6. MCP servers
 
@@ -114,18 +116,33 @@ The default model provider is `fake` — **no API key required**.
 
 ## 10. Running sample incidents
 
+Five synthetic scenarios are packaged under
+`src/incident_commander/fixtures/scenarios/`:
+
+| Scenario | Theme |
+| --- | --- |
+| `connection-pool-exhaustion` | DB pool reduced after deploy |
+| `payment-service-timeout` | Client timeout below payment p95 |
+| `feature-flag-misconfiguration` | Inventory flag enabled too early |
+| `queue-saturation-retry-amplification` | Zero-backoff retry storm |
+| `insufficient-evidence` | Unknown cause / weak signal |
+
 ```bash
 make run
+python -m incident_commander.cli list-scenarios
+python -m incident_commander.cli show-scenario connection-pool-exhaustion --json
 # later stages:
 # python -m incident_commander.cli investigate --scenario connection-pool-exhaustion
 ```
 
-Stage 1 CLI commands:
+Also:
 
 ```bash
 python -m incident_commander.cli version
 python -m incident_commander.cli info --json
 ```
+
+See [docs/evaluation/scenarios.md](docs/evaluation/scenarios.md).
 
 ## 11. API examples
 
@@ -147,19 +164,20 @@ No evaluation runs yet (agents/scenarios arrive in later stages).
 
 ## 14. Limitations
 
-- Investigation graph and agents are not implemented in Stage 1
+- Investigation graph and agents are not implemented yet
 - MCP servers expose metadata only (no network tool handlers yet)
 - Database/Redis readiness checks are opt-in and not wired
 - Anthropic adapter does not call the live API until a transport is injected
+- Scenario fixtures are static JSON; agents do not yet consume them in a live graph
 
 ## 15. Roadmap
 
-1. **Stage 1** — Repository foundation *(this release)*
-2. Domain state models (`IncidentState`, evidence, hypotheses)
+1. **Stage 1** — Repository foundation *(done)*
+2. **Stage 2** — Domain model + synthetic incident dataset *(done)*
 3. MCP servers with fixture-backed tools
 4. LangGraph workflow + 15 agents
 5. Approval tokens, audit log, redaction
-6. Synthetic incident scenarios + evaluation harness
+6. Evaluation harness and baseline comparisons
 7. Persistence, OTEL, and richer CLI/API
 
 ## 16. Contributing

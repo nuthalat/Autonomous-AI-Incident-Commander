@@ -1,0 +1,29 @@
+[
+  {
+    "metric_id": "m-ff-reserve-errors",
+    "name": "rpc_error_rate",
+    "service": "inventory-service",
+    "unit": "ratio",
+    "labels": {
+      "method": "Reserve"
+    },
+    "points": [
+      {
+        "timestamp": "2026-07-14T15:20:00Z",
+        "value": 0.01
+      },
+      {
+        "timestamp": "2026-07-14T15:30:00Z",
+        "value": 0.02
+      },
+      {
+        "timestamp": "2026-07-14T15:35:00Z",
+        "value": 0.41
+      },
+      {
+        "timestamp": "2026-07-14T15:40:00Z",
+        "value": 0.39
+      }
+    ]
+  }
+]

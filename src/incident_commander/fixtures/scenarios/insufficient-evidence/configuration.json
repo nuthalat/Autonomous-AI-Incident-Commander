@@ -1,0 +1,12 @@
+[
+  {
+    "change_id": "cfg-ie-none",
+    "service": "checkout-api",
+    "key": "FEATURE_NOOP",
+    "old_value": "false",
+    "new_value": "false",
+    "changed_at": "2026-07-01T00:00:00Z",
+    "actor": "system",
+    "change_type": "config"
+  }
+]

@@ -1,0 +1,13 @@
+[
+  {
+    "incident_id": "inc-hist-2026-003",
+    "title": "Support anecdote with no prod regression",
+    "summary": "Closed as insufficient evidence after telemetry review.",
+    "root_cause": "No production defect identified",
+    "services": [
+      "frontend"
+    ],
+    "resolved_at": "2026-01-15T16:00:00Z",
+    "similarity_notes": "Anecdotal report without metric corroboration"
+  }
+]

@@ -1,0 +1,14 @@
+[
+  {
+    "incident_id": "inc-hist-2025-088",
+    "title": "Checkout pool exhaustion after Black Friday scale event",
+    "summary": "Pool size too low for traffic; restored pool and added autoscaling alerts.",
+    "root_cause": "DATABASE_POOL_SIZE too low for concurrent checkout workers",
+    "services": [
+      "checkout-api",
+      "postgres"
+    ],
+    "resolved_at": "2025-11-28T02:15:00Z",
+    "similarity_notes": "Same exception signature QueuePool limit reached"
+  }
+]

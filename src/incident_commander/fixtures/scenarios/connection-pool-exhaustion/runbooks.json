@@ -1,0 +1,18 @@
+[
+  {
+    "runbook_id": "rb-cpe-pool",
+    "title": "Checkout API database connection pool saturation",
+    "service": "checkout-api",
+    "summary": "Diagnose pool waits and safely restore prior pool settings or roll back.",
+    "steps": [
+      "Confirm db_connection_pool_wait_seconds elevated",
+      "Compare DATABASE_POOL_SIZE with previous deployment",
+      "Prefer config rollback of pool size before full service rollback",
+      "Require approval for production config write"
+    ],
+    "tags": [
+      "postgres",
+      "connection-pool"
+    ]
+  }
+]
