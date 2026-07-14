@@ -13,7 +13,7 @@ If you discover a security issue, please report it privately.
 
 **Do not** open a public GitHub issue for vulnerabilities.
 
-Email: security@example.com
+Email: tejasvinuthalapati@gmail.com
 
 Include:
 
