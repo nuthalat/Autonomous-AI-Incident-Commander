@@ -1,0 +1,54 @@
+name: Bug report
+description: Report incorrect behavior or a crash
+title: "[bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for filing a bug. For security issues, email security@example.com instead.
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: Clear description of the problem
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps to reproduce
+      description: Minimal steps, commands, or API calls
+      placeholder: |
+        1. make run
+        2. curl localhost:8000/ready
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Version / commit
+      placeholder: 0.1.0 or git SHA
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: OS, Python version, model provider, Docker usage
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: Safety impact
+      options:
+        - label: This may affect approval gating, write tools, or data redaction
