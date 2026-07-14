@@ -1,0 +1,44 @@
+name: Feature request
+description: Propose a new capability or improvement
+title: "[feature]: "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem statement
+      description: What problem does this solve?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+      description: High-level approach, agents, MCP tools, or API changes
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+  - type: dropdown
+    id: area
+    attributes:
+      label: Primary area
+      options:
+        - Agents / LangGraph
+        - MCP servers
+        - API / CLI
+        - Safety / approval
+        - Evaluation
+        - Docs / DX
+        - Other
+    validations:
+      required: true
+  - type: checkboxes
+    id: constraints
+    attributes:
+      label: Constraints acknowledged
+      options:
+        - label: Destructive actions must remain human-approved
+        - label: Default path must work without a paid model API
